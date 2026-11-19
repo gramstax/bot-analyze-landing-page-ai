@@ -93,6 +93,12 @@
     without a key: Pollinations `https://text.pollinations.ai/openai`,
     model `openai-fast` (the `openai` model often rate-limits 402
     FREE_LIMIT, 1 reply/45s/IP — use `openai-fast` for live tests).
+    **Rate-limit retry (added 2026-11-19 after live 402 errors on
+    free-text questions in the DB Chat bot):** `OpenAIClient.chat`
+    retries 402/429 up to 3 times, waiting the provider's "Retry
+    after Ns" (default 45 s, cap 60 s). Covered by unit tests in
+    `test/openai.test.ts` (with "Retry after 0s" so the suite stays
+    fast).
     If a custom base URL is set, an empty key must NOT force mock
     mode; if the base URL is the OpenAI default and the key is empty
     → mock. Reasoning params (`reasoning_effort`) are sent ONLY to
