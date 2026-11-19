@@ -81,7 +81,7 @@ Success (200):
 }
 ```
 
-`recommendations` always has exactly 10 items on success. Failure returns `{"error": "<code>"}` with status 400 (`url-required`, `invalid-url`, `blocked-host`) or 502 (`fetch-error`, `ai-error`).
+`recommendations` has up to 10 items on success (exactly 10 when the model returns a complete reply — the parser never invents items, so a truncated provider reply yields fewer). Failure returns `{"error": "<code>"}` with status 400 (`url-required`, `invalid-url`, `blocked-host`) or 502 (`fetch-error`, `ai-error`).
 
 The endpoint is unauthenticated by design — run it on localhost or behind your own reverse proxy. It stores nothing; the Telegram bot keeps the per-user history.
 
