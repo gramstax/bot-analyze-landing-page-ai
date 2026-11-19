@@ -58,6 +58,20 @@ bun run serve          # HTTP endpoint on ANALYZE_PORT (default 3002)
 
 Send `/analyze https://yuzuu.co` to the bot, or just paste the URL in the chat. The bot shows a typing indicator while it fetches the page and asks the AI, then replies with the roast followed by the 10 recommendations.
 
+## Commands
+
+All commands are in English. Replies are bilingual — English by default, Indonesian when you pick it with `/language`.
+
+| Command | What it does |
+| :------ | :----------- |
+| `/start` | Introduction and main menu |
+| `/analyze <url>` | Analyze a landing page URL (example: `/analyze https://yuzuu.co`) |
+| `/language` | Switch language (English / Indonesia) |
+| `/forget` | Erase my recent analyses |
+| `/help` | Full help and command list |
+
+Any other text — a bare URL pasted in the chat — is analyzed the same way.
+
 ## HTTP Endpoint
 
 The same analysis is available over HTTP — no Telegram needed:
